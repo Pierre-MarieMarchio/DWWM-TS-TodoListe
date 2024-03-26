@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todo Liste</title>
+    <title>Todo List</title>
 
     <!-- fontawsome -->
     <script
@@ -16,20 +16,88 @@
     <link rel="stylesheet" href="./styles/main.css" />
   </head>
   <body>
-    <header>
-      <div class="header-container">
-        <h1>Todo Liste</h1>
-        <img src="./assets/svg/right-from-bracket-solid.svg" alt="log out" />
-      </div>
-      <div class="header-img">
-        <img src="./assets/svg/right-from-bracket-solid.svg" alt="log out" />
-      </div>
-    </header>
-
     <main>
       <section class="section-selector">
+        <h1>Todo List</h1>
+
+        <div>
+          <h4>Lists</h4>
+          <div>
+            <p>My list</p>
+          </div>
+        </div>
+        <div class="logout">
+          <img src="./assets/svg/right-from-bracket-solid.svg" alt="log out" />
+          <p>Log out</p>
+        </div>
       </section>
-      <section class="section-todo-liste"></section>
+
+      <section class="section-todo-list">
+        <div class="new-list-box">
+          <form action="">
+            <div class="input-container ic2">
+              <input id="note" class="input" type="text" placeholder=" " />
+              <div class="cut"></div>
+              <label for="note" class="placeholder">Add a Note</label>
+            </div>
+          </form>
+        </div>
+
+        <div class="list">
+          <div class="list-title">
+            <h2>My list</h2>
+            <hr />
+          </div>
+
+          <div class="list-day">
+            <div class="list-day-Title">
+              <h3>Yesterday</h3>
+              <img src="" alt="" />
+            </div>
+            <ul class="list-colum Yesterday-list">
+              <li>
+                <div class="postit-box"></div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="list-day">
+            <div class="list-day-Title">
+              <h3>Today</h3>
+              <img src="" alt="" />
+            </div>
+            <ul class="list-colum Today-list">
+              <li>
+                <div class="postit-box">
+                    
+                    <div class="list-text">
+                        <button>test</button>
+                        <p class="postit-text">Lorem Ipsum</p>
+                        <button>test</button>
+                    </div>
+                </div>
+              </li>
+              <li>
+                <div class="postit-box is-modified"></div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="list-day">
+            <div class="list-day-Title">
+              <h3>Tomorow</h3>
+              <img src="" alt="" />
+            </div>
+            <ul class="list-colum Tomorow-list">
+              <li>
+                <div class="postit-box">
+                </div>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </section>
     </main>
   </body>
 </html>

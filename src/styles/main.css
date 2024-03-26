@@ -1,5 +1,12 @@
-
 /* primary  selector */
+
+ul {
+  list-style: none;
+}
+
+li {
+  list-style: none;
+}
 
 body {
   background-color: black;
@@ -11,54 +18,164 @@ h1 {
   margin: 0;
 }
 
-header {
-  color: white;
-  background-color: rgb(43, 42, 40);
-  display: flex;
-  height: 5rem;
-}
-
 main {
-    margin: 0;
-    display: grid;
-    grid-template-columns: 15rem auto;
-    
+  margin: 0;
+  display: grid;
+  grid-template-columns: 15rem auto;
 }
 
-/* header */
+/* section selector colum*/
+.section-todo-list {
+  color: #eee;
+}
 
-.header-container {
+.section-todo-list .list {
+  padding: 1rem;
+}
+
+.section-todo-list .list-title {
+  margin-bottom: 2rem;
+}
+
+section.section-selector {
+  border-right: 1px solid rgb(197, 178, 178);
+  color: white;
+  padding: 1rem 2rem;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  text-align: left;
+  height: 100vh;
+}
+
+section.section-selector .logout {
+  margin-top: auto;
+  display: flex;
   justify-content: space-between;
-  width: 100%;
-  padding: 0.2rem;
+  align-items: center;
+  text-align: center;
 }
 
-header div.header-container h1 {
-  padding: 0.3rem;
-  margin: auto 1rem;
+section.section-selector .logout p {
+  color: azure;
 }
 
-header div.header-container img {
+section.section-selector img {
   height: 1.5rem;
-  padding: 0.5rem;
-  margin: auto 1rem;
   cursor: pointer;
   filter: invert(99%) sepia(54%) saturate(169%) hue-rotate(248deg)
     brightness(115%) contrast(100%);
 }
 
-/* grid main */
+/* new todo list */
 
-section.section-selector {
-    border-right: 2px solid rgb(197, 178, 178);
-    color: white;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 100vh;
+div.new-list-box {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  /* background-color: #15172b; */
+  padding: 0.5rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+}
+div.new-list-box form {
+  width: 100%;
+}
+.input-container {
+  height: 50px;
+  position: relative;
+  width: 100%;
+  margin: 0.65rem 0rem;
+}
+
+.input {
+  background-color: #303245;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  font-size: 18px;
+  height: 100%;
+  outline: 0;
+  padding: 4px 20px 0;
+  width: 100%;
+}
+
+.cut {
+  /* background-color: #15172b; */
+  border-radius: 0.8rem;
+  height: 1.2rem;
+  left: 1.2rem;
+  position: absolute;
+  top: -1.2rem;
+  transform: translateY(0);
+  transition: transform 200ms;
+  width: 5rem;
+}
+
+.input:focus ~ .cut,
+.input:not(:placeholder-shown) ~ .cut {
+  transform: translateY(0.3rem);
+  background-color: #15172b;
+}
+
+.placeholder {
+  color: #65657b;
+  font-family: sans-serif;
+  left: 1.2rem;
+  line-height: 0.7rem;
+  pointer-events: none;
+  position: absolute;
+  transform-origin: 0 50%;
+  transition: transform 200ms, color 200ms;
+  top: 1.2rem;
+}
+
+.input:focus ~ .placeholder,
+.input:not(:placeholder-shown) ~ .placeholder {
+  transform: translateY(-1.8rem) translateX(0.7rem) scale(0.75);
+}
+
+.input:not(:placeholder-shown) ~ .placeholder {
+  color: #808097;
+}
+
+.input:focus ~ .placeholder {
+  color: #dc2f55;
+}
+
+/* list */
+
+.list-colum {
+  display: flex;
+  flex-direction: column;
+}
+div.list-day-Title {
+  height: 0.5rem;
+}
+div.list-day h3 {
+  margin: 0;
+}
+
+/* post it card */
+
+.postit-box {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  background-color: #303245;
+  height: 6rem;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+}
+
+.postit-box.is-modified {
+  background-color: blueviolet;
+}
+
+.list-text {
+  margin: 0 auto;
+  display: flex;
 }
