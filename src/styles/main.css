@@ -26,11 +26,17 @@ main {
 
 /* section selector colum*/
 .section-todo-list {
+  display: flex;
+  flex-direction: column;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
   color: #eee;
 }
 
 .section-todo-list .list {
   padding: 1rem;
+  
 }
 
 .section-todo-list .list-title {
@@ -70,11 +76,28 @@ section.section-selector img {
 
 /* new todo list */
 
+.input-container {
+  display: flex;
+  align-items: center;
+}
+
+.input-container .input {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.input-container .buttons {
+  display: flex;
+  align-items: center;
+}
+
+.input-container .buttons input {
+  margin-right: 10px;
+}
 div.new-list-box {
   display: flex;
   align-items: center;
   text-align: center;
-  /* background-color: #15172b; */
   padding: 0.5rem;
   margin: 1rem;
   border-radius: 0.5rem;
@@ -87,6 +110,10 @@ div.new-list-box form {
   position: relative;
   width: 100%;
   margin: 0.65rem 0rem;
+  background-color: #303245;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
 }
 
 .input {
@@ -103,7 +130,7 @@ div.new-list-box form {
 }
 
 .cut {
-  /* background-color: #15172b; */
+ 
   border-radius: 0.8rem;
   height: 1.2rem;
   left: 1.2rem;
@@ -147,9 +174,27 @@ div.new-list-box form {
 
 /* list */
 
+.check-box {
+  margin: 1rem;
+  transform: scale(2);
+  cursor: pointer;
+}
+
+.list-day{
+  margin-bottom: 3rem ;
+}
+
+.list-day-Title {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  
+}
+
 .list-colum {
   display: flex;
   flex-direction: column;
+  
 }
 div.list-day-Title {
   height: 0.5rem;
@@ -166,9 +211,13 @@ div.list-day h3 {
   align-content: center;
   text-align: center;
   background-color: #303245;
-  height: 6rem;
+
   margin-top: 1rem;
   border-radius: 0.5rem;
+}
+
+.postit-box.ismodified {
+  background-color: blue;
 }
 
 .postit-box.is-modified {
@@ -176,6 +225,60 @@ div.list-day h3 {
 }
 
 .list-text {
-  margin: 0 auto;
+  width: 100%;
   display: flex;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+
+.vertical-separator {
+  margin-right: 1rem;
+  border: 1px solid #65657b;
+  height: 2rem;
+}
+
+/* icones svg */
+
+.i-size {
+  height: 1.5rem;
+  margin: 0.5rem;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.list ul.list-colum li img {
+  height: 1.5rem;
+  margin: 0.5rem;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.red {
+  filter: brightness(0) saturate(100%) invert(22%) sepia(89%) saturate(1183%)
+    hue-rotate(13deg) brightness(99%) contrast(103%);
+}
+
+.list ul.list-colum .postit-box.ismodified img.red {
+  display: none;
+}
+
+.blue {
+  filter: brightness(0) saturate(100%) invert(51%) sepia(99%) saturate(1182%)
+    hue-rotate(186deg) brightness(100%) contrast(97%);
+}
+
+.green {
+  filter: brightness(0) saturate(100%) invert(20%) sepia(79%) saturate(2705%)
+    hue-rotate(144deg) brightness(103%) contrast(101%);
+}
+
+.white {
+  filter: invert(99%) sepia(54%) saturate(169%) hue-rotate(248deg)
+    brightness(115%) contrast(100%);
+}
+
+#greenbtn {
+  margin: 0;
+  margin-right: 1rem;
 }
