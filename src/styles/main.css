@@ -18,7 +18,8 @@ h1 {
   margin: 0;
 }
 
-main {
+/* Ajout d'un sélecteur pour le container */
+.container {
   margin: 0;
   display: grid;
   grid-template-columns: 15rem auto;
@@ -36,14 +37,17 @@ main {
 
 .section-todo-list .list {
   padding: 1rem;
-  
 }
 
 .section-todo-list .list-title {
   margin-bottom: 2rem;
+  position: sticky;
+  top: 5.3rem;
+  z-index: 1;
+  background-color: black;
 }
 
-section.section-selector {
+aside.sidebar {
   border-right: 1px solid rgb(197, 178, 178);
   color: white;
   padding: 1rem 2rem;
@@ -53,9 +57,12 @@ section.section-selector {
   align-items: left;
   text-align: left;
   height: 100vh;
+  position: sticky;
+  top: 0px;
+  overflow-y: auto;
 }
 
-section.section-selector .logout {
+aside.sidebar .logout {
   margin-top: auto;
   display: flex;
   justify-content: space-between;
@@ -63,15 +70,14 @@ section.section-selector .logout {
   text-align: center;
 }
 
-section.section-selector .logout p {
+aside.sidebar .logout p {
   color: azure;
 }
 
-section.section-selector img {
+aside.sidebar img {
   height: 1.5rem;
   cursor: pointer;
-  filter: invert(99%) sepia(54%) saturate(169%) hue-rotate(248deg)
-    brightness(115%) contrast(100%);
+  filter: invert(99%) sepia(54%) saturate(169%) hue-rotate(248deg) brightness(115%) contrast(100%);
 }
 
 /* new todo list */
@@ -94,13 +100,20 @@ section.section-selector img {
 .input-container .buttons input {
   margin-right: 10px;
 }
+
+.new-list-box {
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+  background-color: black;
+}
+
 div.new-list-box {
   display: flex;
   align-items: center;
   text-align: center;
   padding: 0.5rem;
   margin: 1rem;
-  border-radius: 0.5rem;
 }
 div.new-list-box form {
   width: 100%;
@@ -130,7 +143,6 @@ div.new-list-box form {
 }
 
 .cut {
- 
   border-radius: 0.8rem;
   height: 1.2rem;
   left: 1.2rem;
@@ -174,27 +186,37 @@ div.new-list-box form {
 
 /* list */
 
+.title-date-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.change-date-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .check-box {
   margin: 1rem;
   transform: scale(2);
   cursor: pointer;
 }
 
-.list-day{
-  margin-bottom: 3rem ;
+.list-day {
+  margin-bottom: 3rem;
 }
 
 .list-day-Title {
   display: flex;
   align-items: center;
   align-content: center;
-  
 }
 
 .list-colum {
   display: flex;
   flex-direction: column;
-  
 }
 div.list-day-Title {
   height: 0.5rem;
@@ -229,7 +251,10 @@ div.list-day h3 {
   display: flex;
   align-items: center;
   align-content: center;
-  text-align: center;
+  text-align: left;
+}
+.postit-text {
+  padding: 0 0.6rem;
 }
 
 .vertical-separator {
@@ -237,6 +262,32 @@ div.list-day h3 {
   border: 1px solid #65657b;
   height: 2rem;
 }
+
+/* logique post-it  */
+
+/* Ajout d'un sélecteur pour les boutons */
+.delete-button:hover,
+.move-button:hover {
+  opacity: 0.8;
+}
+
+
+/* Ajout d'un sélecteur pour les tâches terminées */
+.check-box:checked + label {
+  text-decoration: line-through;
+  color: gray;
+}
+
+/* Désactivation de la case à cocher lorsque la classe ismodified est présente */
+.ismodified .check-box {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Empêcher le clic sur le texte de cocher la case à cocher */
+/* .postit-text {
+  pointer-events: none;
+} */
 
 /* icones svg */
 
@@ -246,7 +297,12 @@ div.list-day h3 {
   margin-right: 1rem;
   cursor: pointer;
 }
+.i-size-d {
+  height: 1rem;
+  margin: 0.5rem 1rem;
 
+  cursor: pointer;
+}
 .list ul.list-colum li img {
   height: 1.5rem;
   margin: 0.5rem;
@@ -254,9 +310,10 @@ div.list-day h3 {
   cursor: pointer;
 }
 
+/*  colors  */
+
 .red {
-  filter: brightness(0) saturate(100%) invert(22%) sepia(89%) saturate(1183%)
-    hue-rotate(13deg) brightness(99%) contrast(103%);
+  filter: brightness(0) saturate(100%) invert(22%) sepia(89%) saturate(1183%) hue-rotate(13deg) brightness(99%) contrast(103%);
 }
 
 .list ul.list-colum .postit-box.ismodified img.red {
@@ -264,21 +321,115 @@ div.list-day h3 {
 }
 
 .blue {
-  filter: brightness(0) saturate(100%) invert(51%) sepia(99%) saturate(1182%)
-    hue-rotate(186deg) brightness(100%) contrast(97%);
+  filter: brightness(0) saturate(100%) invert(51%) sepia(99%) saturate(1182%) hue-rotate(186deg) brightness(100%) contrast(97%);
 }
 
 .green {
-  filter: brightness(0) saturate(100%) invert(20%) sepia(79%) saturate(2705%)
-    hue-rotate(144deg) brightness(103%) contrast(101%);
+  filter: brightness(0) saturate(100%) invert(20%) sepia(79%) saturate(2705%) hue-rotate(144deg) brightness(103%) contrast(101%);
 }
 
 .white {
-  filter: invert(99%) sepia(54%) saturate(169%) hue-rotate(248deg)
-    brightness(115%) contrast(100%);
+  filter: invert(99%) sepia(54%) saturate(169%) hue-rotate(248deg) brightness(115%) contrast(100%);
+}
+
+.grey {
+  color: #969696;
+  filter: invert(67%) sepia(13%) saturate(11%) hue-rotate(356deg) brightness(87%) contrast(92%);
 }
 
 #greenbtn {
   margin: 0;
   margin-right: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 0.9rem;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  aside.sidebar {
+    display: none;
+    height: auto;
+  }
+  .cut {
+    width: 4.5rem;
+  }
+
+  .list-day-Title h3 {
+    margin-top: 0.5rem;
+  }
+
+  .section-todo-list .list-title {
+    padding-top: 0.5rem;
+    top: 0;
+  }
+
+  div.new-list-box {
+    position: fixed;
+    width: 100%;
+    top: auto;
+    bottom: 0;
+    z-index: 1;
+    background-color: black;
+    margin: 0;
+    padding-top: 0;
+    border-top: solid 2px #808097;
+  }
+
+  div.list-day {
+    margin-bottom: 1.5rem;
+  }
+
+  .check-box {
+    margin: 0.5rem;
+    transform: scale(1);
+  }
+
+  .i-size {
+    height: 1rem;
+  }
+
+  .list-colum.Today-list {
+    padding: 0;
+  }
+
+  .list ul.list-colum li img {
+    height: 1rem;
+    margin: 0.2rem;
+    margin-right: 0.3rem;
+    cursor: pointer;
+  }
+
+  .vertical-separator {
+    margin-right: 0.4rem;
+  }
+
+  #greenbtn {
+    margin: 0;
+    margin-right: 0.4rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    font-size: 1.2rem;
+  }
+
+  .container {
+    grid-template-columns: 20rem auto;
+  }
+
+  .cut {
+    width: 6rem;
+  }
+
+  .sidebar {
+    padding: 3rem;
+  }
+  .section-todo-list {
+    padding: 3rem;
+  }
 }

@@ -16,21 +16,20 @@
     <link rel="stylesheet" href="./styles/main.css" />
   </head>
   <body>
-    <main>
-      <section class="section-selector">
+    <main class="container">
+      <!-- Ajout d'une classe container -->
+      <aside class="sidebar">
+        <!-- Changement de section en aside pour la sémantique -->
         <h1>Todo List</h1>
 
         <div>
-          <h4>Lists</h4>
-          <div>
-            <p>My list</p>
-          </div>
+          <h4 class="grey">My List</h4>
         </div>
         <div class="logout">
           <img src="./assets/svg/right-from-bracket-solid.svg" alt="log out" />
           <p>Log out</p>
         </div>
-      </section>
+      </aside>
 
       <section class="section-todo-list">
         <div class="new-list-box">
@@ -38,131 +37,166 @@
             <div class="input-container ic2">
               <input id="note" class="input" type="text" placeholder=" " />
               <div class="buttons">
-                <input class="blue i-size date-button" type="image" src="./assets/svg/calendar-days-solid.svg" alt="Set Date">
-                <input class="green i-size submit-button" type="image" src="./assets/svg/circle-chevron-right-solid.svg" alt="Validate">
+                <input
+                  class="blue i-size date-button"
+                  type="image"
+                  src="./assets/svg/calendar-days-solid.svg"
+                  alt="Set Date"
+                />
+                <input
+                  class="green i-size submit-button"
+                  type="image"
+                  src="./assets/svg/circle-chevron-right-solid.svg"
+                  alt="Validate"
+                />
               </div>
               <div class="cut"></div>
-              <label for="note" class="placeholder">Add a Note</label>
+              <label for="note" class="placeholder" contenteditable="true"
+                >Add a Note</label
+              >
             </div>
-           
           </form>
         </div>
 
         <div class="list">
           <div class="list-title">
-            <h2>My list</h2>
+            <div class="title-date-container">
+              <h2>My list</h2>
+              <div class="change-date-container">
+                <img
+                  class="white i-size-d"
+                  src="./assets/svg/chevron-left-solid.svg"
+                  alt=""
+                />
+                <h3>Today</h3>
+                <img
+                  class="white i-size-d"
+                  src="./assets/svg/chevron-right-solid.svg"
+                  alt=""
+                />
+              </div>
+            </div>
             <hr />
           </div>
 
-          <div class="list-day">
-            <div class="list-day-Title">
-              <img class=" i-size white" src="./assets/svg/chevron-right-solid.svg" alt="" />
-              <h3>Yesterday</h3>
-             
+          <!-- Ajout d'une classe pour grouper les list-day -->
+          <div class="list-days">
+            <div class="list-day">
+              <div class="list-day-Title">
+                <img
+                  class="i-size grey"
+                  src="./assets/svg/chevron-right-solid.svg"
+                  alt=""
+                />
+                <h3 class="grey">Yesterday</h3>
+              </div>
+              <ul class="list-colum Yesterday-list"></ul>
             </div>
-            <ul class="list-colum Yesterday-list">
-              <li>
-                <div class="postit-box">
-                  <div class="list-text">
-                    <input class="check-box" type="checkbox" name="horns" />
-                    <p class="postit-text">
-                      Faire en sorte que le site soit responsive
-                    </p>
-                    
-                  </div>
-                  <img class="red" src="./assets/svg/trash-can-solid.svg" alt="bouton delet">
-                  <img class="blue" src="./assets/svg/pen-to-square-solid.svg" alt="bouton modifier">
-                  <div class="vertical-separator"></div>
-                  <img id="greenbtn" class="green" src="./assets/svg/up-down-left-right-solid.svg" alt="bouton mouve">
-                </div>
-              </li>
-            </ul>
-          </div>
 
-          <div class="list-day">
-            <div class="list-day-Title">
-              <img class=" i-size white" src="./assets/svg/chevron-down-solid.svg" alt="" />
-              <h3>Today</h3>
-              
-            </div>
-            <ul class="list-colum Today-list">
-              <li>
-                <div class="postit-box">
-                  <div class="list-text">
-                    <input class="check-box" type="checkbox" name="horns" />
-                    <p class="postit-text">
-                      Faire en sorte que le site soit responsive
-                    </p>
-                    
-                  </div>
-                  <img class="red" src="./assets/svg/trash-can-solid.svg" alt="bouton delet">
-                  <img class="blue" src="./assets/svg/pen-to-square-solid.svg" alt="bouton modifier">
-                  <div class="vertical-separator"></div>
-                  <img id="greenbtn" class="green" src="./assets/svg/up-down-left-right-solid.svg" alt="bouton mouve">
-                </div>
-              </li>
-              <li>
-                <div class="postit-box">
-                  <div class="list-text">
-                    <input class="check-box" type="checkbox" name="horns" />
-                    <p class="postit-text">
-                      Faire en sorte que le site soit responsive
-                    </p>
-                    
-                  </div>
-                  <img class="red" src="./assets/svg/trash-can-solid.svg" alt="bouton delet">
-                  <img class="blue" src="./assets/svg/pen-to-square-solid.svg" alt="bouton modifier">
-                  <div class="vertical-separator"></div>
-                  <img id="greenbtn" class="green" src="./assets/svg/up-down-left-right-solid.svg" alt="bouton mouve">
-                </div>
-              </li>
-              <li>
-                <div class="postit-box ismodified">
-                  <div class="list-text">
-                    <input class="check-box" type="checkbox" name="horns" />
-                    <p class="postit-text">
-                      Faire en sorte que le site soit responsive
-                    </p>
-                    
-                  </div>
-                  <img class="red" src="./assets/svg/trash-can-solid.svg" alt="bouton delet">
-                  <img class="blue" src="./assets/svg/pen-to-square-solid.svg" alt="bouton modifier">
-                  <div class="vertical-separator"></div>
-                  <img id="greenbtn" class="green" src="./assets/svg/up-down-left-right-solid.svg" alt="bouton mouve">
-                </div>
-              </li>
-          </div>
+            <div class="list-day">
+              <div class="list-day-Title">
+                <img
+                  class="i-size white"
+                  src="./assets/svg/chevron-down-solid.svg"
+                  alt=""
+                />
+                <h3>Today</h3>
+              </div>
+              <ul class="list-colum Today-list">
+                <!-- ... Liste des tâches ... -->
 
-          <div class="list-day">
-            <div class="list-day-Title">
-              
-              <img class=" i-size white" src="./assets/svg/chevron-right-solid.svg" alt="" />
-              
-              <h3>Tomorow</h3>
-              
-            </div>
-            <ul class="list-colum Tomorow-list">
-              <li>
                 <li>
                   <div class="postit-box">
                     <div class="list-text">
-                      <input class="check-box" type="checkbox" name="horns" />
-                      <p class="postit-text">
+                      <input class="check-box" type="checkbox" id="task-1" />
+                      <label
+                        for="task-1"
+                        class="postit-text"
+                        contenteditable="false"
+                      >
                         Faire en sorte que le site soit responsive
-                      </p>
-                      
+                      </label>
                     </div>
-                    <img class="red" src="./assets/svg/trash-can-solid.svg" alt="bouton delet">
-                    <img class="blue" src="./assets/svg/pen-to-square-solid.svg" alt="bouton modifier">
+                    <img
+                      class="red delete-button"
+                      src="./assets/svg/trash-can-solid.svg"
+                      alt="bouton delet"
+                    />
                     <div class="vertical-separator"></div>
-                    <img id="greenbtn" class="green" src="./assets/svg/up-down-left-right-solid.svg" alt="bouton mouve">
+                    <img
+                      class="green move-button"
+                      src="./assets/svg/up-down-left-right-solid.svg"
+                      alt="bouton move"
+                    />
                   </div>
                 </li>
-              </li>
-            </ul>
+
+                <li>
+                  <div class="postit-box">
+                    <div class="list-text">
+                      <input class="check-box" type="checkbox" id="task-2" />
+                      <label for="task-2" class="postit-text">
+                        Faire en sorte que le site soit responsive
+                      </label>
+                    </div>
+                    <img
+                      class="red delete-button"
+                      src="./assets/svg/trash-can-solid.svg"
+                      alt="bouton delet"
+                    />
+                    <div class="vertical-separator"></div>
+                    <img
+                      class="green move-button"
+                      src="./assets/svg/up-down-left-right-solid.svg"
+                      alt="bouton move"
+                    />
+                  </div>
+                </li>
+
+                <li>
+                  <div class="postit-box ismodified">
+                    <div class="list-text">
+                      <input class="check-box" type="checkbox" id="task-3" />
+                      <label
+                        for="task-3"
+                        class="postit-text"
+                        contenteditable="true"
+                      >
+                        Faire en sorte que le site soit responsive
+                      </label>
+                    </div>
+                    <img
+                      class="red delete-button"
+                      src="./assets/svg/trash-can-solid.svg"
+                      alt="bouton delet"
+                    />
+                    <div class="vertical-separator"></div>
+                    <img
+                      class="green move-button"
+                      src="./assets/svg/up-down-left-right-solid.svg"
+                      alt="bouton move"
+                    />
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="list-day">
+              <div class="list-day-Title">
+                <img
+                  class="i-size grey"
+                  src="./assets/svg/chevron-right-solid.svg"
+                  alt=""
+                />
+                <h3 class="grey">Tomorow</h3>
+              </div>
+              <ul class="list-colum Tomorow-list"></ul>
+            </div>
           </div>
         </div>
       </section>
     </main>
+
+    <script src="./script/app.js"></script>
   </body>
 </html>
