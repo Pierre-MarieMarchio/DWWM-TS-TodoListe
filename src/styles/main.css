@@ -77,7 +77,8 @@ aside.sidebar .logout p {
 aside.sidebar img {
   height: 1.5rem;
   cursor: pointer;
-  filter: invert(99%) sepia(54%) saturate(169%) hue-rotate(248deg) brightness(115%) contrast(100%);
+  filter: invert(99%) sepia(54%) saturate(169%) hue-rotate(248deg)
+    brightness(115%) contrast(100%);
 }
 
 /* new todo list */
@@ -271,7 +272,6 @@ div.list-day h3 {
   opacity: 0.8;
 }
 
-
 /* Ajout d'un sélecteur pour les tâches terminées */
 .check-box:checked + label {
   text-decoration: line-through;
@@ -313,7 +313,8 @@ div.list-day h3 {
 /*  colors  */
 
 .red {
-  filter: brightness(0) saturate(100%) invert(22%) sepia(89%) saturate(1183%) hue-rotate(13deg) brightness(99%) contrast(103%);
+  filter: brightness(0) saturate(100%) invert(22%) sepia(89%) saturate(1183%)
+    hue-rotate(13deg) brightness(99%) contrast(103%);
 }
 
 .list ul.list-colum .postit-box.ismodified img.red {
@@ -321,20 +322,24 @@ div.list-day h3 {
 }
 
 .blue {
-  filter: brightness(0) saturate(100%) invert(51%) sepia(99%) saturate(1182%) hue-rotate(186deg) brightness(100%) contrast(97%);
+  filter: brightness(0) saturate(100%) invert(51%) sepia(99%) saturate(1182%)
+    hue-rotate(186deg) brightness(100%) contrast(97%);
 }
 
 .green {
-  filter: brightness(0) saturate(100%) invert(20%) sepia(79%) saturate(2705%) hue-rotate(144deg) brightness(103%) contrast(101%);
+  filter: brightness(0) saturate(100%) invert(20%) sepia(79%) saturate(2705%)
+    hue-rotate(144deg) brightness(103%) contrast(101%);
 }
 
 .white {
-  filter: invert(99%) sepia(54%) saturate(169%) hue-rotate(248deg) brightness(115%) contrast(100%);
+  filter: invert(99%) sepia(54%) saturate(169%) hue-rotate(248deg)
+    brightness(115%) contrast(100%);
 }
 
 .grey {
   color: #969696;
-  filter: invert(67%) sepia(13%) saturate(11%) hue-rotate(356deg) brightness(87%) contrast(92%);
+  filter: invert(67%) sepia(13%) saturate(11%) hue-rotate(356deg)
+    brightness(87%) contrast(92%);
 }
 
 #greenbtn {
