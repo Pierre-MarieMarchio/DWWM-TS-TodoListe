@@ -33,15 +33,15 @@ const dateForm = () => {
   }
 };
 
-btnDate?.addEventListener("click", () => {
-  inputDate?.showPicker();
-});
-
 dateForm();
 
 let taskTitle = "";
 let taskDate = inputDate?.value || new Date().toISOString().split("T")[0];
 let formResult = {};
+
+btnDate?.addEventListener("click", () => {
+  inputDate?.showPicker();
+});
 
 form?.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -53,6 +53,7 @@ form?.addEventListener("submit", (e) => {
 
 const setFormResult = () => {
   taskTitle = taskInput instanceof HTMLInputElement ? taskInput.value : "";
+  taskDate = inputDate?.value;
 
   formResult = {
     taskDate: taskDate,
@@ -61,11 +62,10 @@ const setFormResult = () => {
 };
 
 const clearForm = () => {
+  taskInput instanceof HTMLInputElement
+    ? ((taskInput as HTMLInputElement).value = "")
+    : null;
   
-
-
-  (taskInput instanceof HTMLInputElement) ? (taskInput as HTMLInputElement).value = '' : null;
 };
-
 
 export { formResult };
