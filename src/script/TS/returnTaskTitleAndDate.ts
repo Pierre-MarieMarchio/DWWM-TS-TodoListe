@@ -1,20 +1,20 @@
 const form = document.getElementById("new-task-form") as HTMLFormElement | null;
-const taskInput = document.getElementById(
+let taskInput = document.getElementById(
   "task-input"
-) as HTMLFormElement | null;
+) as HTMLInputElement | null;
 
 const btnDate = document.getElementById(
   "btn-date-form"
 ) as HTMLInputElement | null;
-const inputDate = document.getElementById(
-  "task-date"
-) as HTMLInputElement | null;
+let inputDate = document.getElementById("task-date") as HTMLInputElement | null;
 
 function isInputElement(
   element: HTMLElement | null
 ): element is HTMLInputElement {
   return element instanceof HTMLInputElement;
 }
+
+// mettre une limite de 7 jours sur formulair avant et apres curent day
 
 const dateForm = () => {
   const today: Date = new Date();
@@ -35,8 +35,10 @@ const dateForm = () => {
 
 dateForm();
 
+// recuperer les valeurs
+
 let taskTitle = "";
-let taskDate = inputDate?.value || new Date().toISOString().split("T")[0];
+let taskDate: Date | null = new Date();
 let formResult = {};
 
 btnDate?.addEventListener("click", () => {
@@ -47,13 +49,19 @@ form?.addEventListener("submit", (e) => {
   e.preventDefault();
 
   setFormResult();
+  console.log(Date());
   console.log(formResult);
   clearForm();
 });
 
 const setFormResult = () => {
-  taskTitle = taskInput instanceof HTMLInputElement ? taskInput.value : "";
-  taskDate = inputDate?.value;
+  if (taskInput?.value) {
+    taskTitle = taskInput.value;
+  }
+
+  if (inputDate?.value) {
+    taskDate = new Date(inputDate?.value); // TODO INPUT DDATE
+  }
 
   formResult = {
     taskDate: taskDate,
@@ -62,10 +70,13 @@ const setFormResult = () => {
 };
 
 const clearForm = () => {
-  taskInput instanceof HTMLInputElement
-    ? ((taskInput as HTMLInputElement).value = "")
-    : null;
-  
+  if (taskInput?.value) {
+    taskInput.value = "";
+  }
+  //@TODO  DELETE THAT DATE YO
+  // if (inputDate) {
+  //   inputDate = null;
+  // }
 };
 
 export { formResult };

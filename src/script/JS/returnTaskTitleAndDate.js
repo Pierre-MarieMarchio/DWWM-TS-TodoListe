@@ -1,10 +1,11 @@
 const form = document.getElementById("new-task-form");
-const taskInput = document.getElementById("task-input");
+let taskInput = document.getElementById("task-input");
 const btnDate = document.getElementById("btn-date-form");
-const inputDate = document.getElementById("task-date");
+let inputDate = document.getElementById("task-date");
 function isInputElement(element) {
     return element instanceof HTMLInputElement;
 }
+// mettre une limite de 7 jours sur formulair avant et apres curent day
 const dateForm = () => {
     const today = new Date();
     const maxDate = new Date(today);
@@ -19,8 +20,9 @@ const dateForm = () => {
     }
 };
 dateForm();
+// recuperer les valeurs
 let taskTitle = "";
-let taskDate = (inputDate === null || inputDate === void 0 ? void 0 : inputDate.value) || new Date().toISOString().split("T")[0];
+let taskDate = new Date();
 let formResult = {};
 btnDate === null || btnDate === void 0 ? void 0 : btnDate.addEventListener("click", () => {
     inputDate === null || inputDate === void 0 ? void 0 : inputDate.showPicker();
@@ -28,20 +30,29 @@ btnDate === null || btnDate === void 0 ? void 0 : btnDate.addEventListener("clic
 form === null || form === void 0 ? void 0 : form.addEventListener("submit", (e) => {
     e.preventDefault();
     setFormResult();
+    console.log(Date());
     console.log(formResult);
     clearForm();
 });
 const setFormResult = () => {
-    taskTitle = taskInput instanceof HTMLInputElement ? taskInput.value : "";
-    taskDate = inputDate === null || inputDate === void 0 ? void 0 : inputDate.value;
+    if (taskInput === null || taskInput === void 0 ? void 0 : taskInput.value) {
+        taskTitle = taskInput.value;
+    }
+    if (inputDate === null || inputDate === void 0 ? void 0 : inputDate.value) {
+        taskDate = new Date(inputDate === null || inputDate === void 0 ? void 0 : inputDate.value); // TODO INPUT DDATE
+    }
     formResult = {
         taskDate: taskDate,
         taskTitle: taskTitle,
     };
 };
 const clearForm = () => {
-    taskInput instanceof HTMLInputElement
-        ? (taskInput.value = "")
-        : null;
+    if (taskInput === null || taskInput === void 0 ? void 0 : taskInput.value) {
+        taskInput.value = "";
+    }
+    //@TODO  DELETE THAT DATE YO
+    // if (inputDate) {
+    //   inputDate = null;
+    // }
 };
 export { formResult };
