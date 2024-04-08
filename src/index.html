@@ -31,17 +31,25 @@
 
       <section class="section-todo-list">
         <div class="new-list-box">
-          <form action="">
+          <form id="new-task-form">
             <div class="input-container ic2">
-              <input id="note" class="input" type="text" placeholder=" " />
+              <input
+                id="task-input"
+                class="input"
+                type="text"
+                placeholder=" "
+              />
               <div class="buttons">
-                <input
+                <input type="date" id="task-date" style="display: none" />
+                <img
+                  id="btn-date-form"
                   class="blue i-size date-button"
                   type="image"
                   src="./assets/svg/calendar-days-solid.svg"
                   alt="Set Date"
                 />
                 <input
+                  id="new-task-farm-submit"
                   class="green i-size submit-button"
                   type="image"
                   src="./assets/svg/circle-chevron-right-solid.svg"
@@ -192,6 +200,6 @@
       </section>
     </main>
 
-    <script src="./script/app.js"></script>
+    <script type="module" src="./script/JS/app.js"></script>
   </body>
 </html>
