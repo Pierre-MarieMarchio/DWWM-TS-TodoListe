@@ -1,13 +1,23 @@
 import { formResult } from "./returnTaskTitleAndDate.js";
-import { List } from "./classes/list.js";
-console.log(formResult);
-const taskData = [
-    { id: "1", taskDate: new Date(), taskTitle: "Task 1" },
-    { id: "2", taskDate: new Date(), taskTitle: "Task 2" },
-    { id: "3", taskDate: new Date(), taskTitle: "Task 4" },
-];
-const listInfo = { id: "1", name: "My list" };
-const newList = new List(listInfo);
-console.log("ici");
-console.log(taskData);
-newList.addTask();
+import { clearForm } from "./returnTaskTitleAndDate.js";
+import { setFormResult } from "./returnTaskTitleAndDate.js";
+import { createList } from "./createList.js";
+import { List } from "./services/list.js";
+const form = document.getElementById("new-task-form");
+//@TODO INIT FOR MY CLASS LIST DELET WHITH LOCAL STORAGE
+const taskData = [];
+const listInfo = {
+    id: "1",
+    name: "My list",
+    tasks: taskData,
+};
+// init of my list
+const myList = new List(listInfo);
+form === null || form === void 0 ? void 0 : form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    setFormResult();
+    myList.addTask(formResult);
+    console.log(listInfo);
+    clearForm();
+    createList(myList.returnTasksList());
+});

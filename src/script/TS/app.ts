@@ -1,18 +1,36 @@
 import { formResult } from "./returnTaskTitleAndDate.js";
+import { clearForm } from "./returnTaskTitleAndDate.js";
+import { setFormResult } from "./returnTaskTitleAndDate.js";
+import { createList } from "./createList.js";
 import { TaskData } from "./models/taskData.js";
-import { List } from "./classes/list.js";
+import { TasksList } from "./models/tasksList.js";
+import { List } from "./services/list.js";
 
-console.log(formResult);
+const form = document.getElementById("new-task-form") as HTMLFormElement | null;
 
-const taskData: TaskData[] = [
-  { id: "1", taskDate: new Date(), taskTitle: "Task 1" },
-  { id: "2", taskDate: new Date(), taskTitle: "Task 2" },
-  { id: "3", taskDate: new Date(), taskTitle: "Task 4" },
-];
 
-const listInfo = { id: "1", name: "My list" };
-const newList = new List(listInfo);
 
-console.log(taskData);
 
-newList.addTask();
+//@TODO INIT FOR MY CLASS LIST DELET WHITH LOCAL STORAGE
+
+const taskData: TaskData[] = [];
+const listInfo: TasksList = {
+  id: "1",
+  name: "My list",
+  tasks: taskData,
+};
+
+// init of my list
+const myList = new List(listInfo);
+
+
+
+form?.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  setFormResult();
+  myList.addTask(formResult);
+  console.log(listInfo);
+  clearForm();
+  createList(myList.returnTasksList());
+});
