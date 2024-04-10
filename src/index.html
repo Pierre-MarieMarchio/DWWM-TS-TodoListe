@@ -86,7 +86,7 @@
           </div>
 
           <div class="list-days">
-            <div class="list-day">
+            <div id="dayBeforList" class="list-day">
               <div class="list-day-Title">
                 <img
                   class="i-size grey"
@@ -95,10 +95,13 @@
                 />
                 <h3 class="grey">Yesterday</h3>
               </div>
-              <ul class="list-colum Yesterday-list"></ul>
+              <ul
+                id="beforSelectedDayList"
+                class="list-colum Yesterday-list"
+              ></ul>
             </div>
 
-            <div class="list-day">
+            <div id="curentDayList" class="list-day">
               <div class="list-day-Title">
                 <img
                   class="i-size white"
@@ -107,8 +110,10 @@
                 />
                 <h3>Today</h3>
               </div>
-              <ul id="selectedDayList" class="list-colum Today-list">
-
+              <ul
+                id="selectedDayList"
+                class="list-colum Today-list"
+              >
                 <li>
                   <div class="postit-box ismodified">
                     <div class="list-text">
@@ -137,7 +142,7 @@
               </ul>
             </div>
 
-            <div class="list-day">
+            <div id="dayAfterList" class="list-day">
               <div class="list-day-Title">
                 <img
                   class="i-size grey"
@@ -146,7 +151,7 @@
                 />
                 <h3 class="grey">Tomorow</h3>
               </div>
-              <ul class="list-colum Tomorow-list"></ul>
+              <ul id="afterDayList" class="list-colum Tomorow-list"></ul>
             </div>
           </div>
         </div>

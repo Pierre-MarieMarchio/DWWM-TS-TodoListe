@@ -18,6 +18,10 @@ h1 {
   margin: 0;
 }
 
+.display-none {
+  display: none !important;
+}
+
 /* Ajout d'un sélecteur pour le container */
 .container {
   margin: 0;

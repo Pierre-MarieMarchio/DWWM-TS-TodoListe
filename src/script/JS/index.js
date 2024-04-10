@@ -48,6 +48,83 @@ const clearForm = () => {
     //   inputDate = null;
     // }
 };
+// Index list button logique
+const dayBeforList = document.querySelector("#dayBeforList img");
+const curentDayList = document.querySelector("#curentDayList img");
+const dayAfterList = document.querySelector("#dayAfterList img");
+dayBeforList === null || dayBeforList === void 0 ? void 0 : dayBeforList.addEventListener("click", () => {
+    const currentSrc = dayBeforList === null || dayBeforList === void 0 ? void 0 : dayBeforList.getAttribute("src");
+    const h3Color = document.querySelector("#dayBeforList h3");
+    const ul = document.getElementById("beforSelectedDayList");
+    if (currentSrc == "./assets/svg/chevron-right-solid.svg") {
+        dayBeforList.src = "./assets/svg/chevron-down-solid.svg";
+        dayBeforList.className = "i-size white";
+        if (h3Color != null) {
+            h3Color.className = "";
+        }
+        if (ul != null) {
+            ul.className = "list-colum Yesterday-list";
+        }
+    }
+    else {
+        dayBeforList.src = "./assets/svg/chevron-right-solid.svg";
+        dayBeforList.className = "i-size grey";
+        if (h3Color != null) {
+            h3Color.className = "grey";
+        }
+        if (ul != null) {
+            ul.className = "list-colum Yesterday-list display-none";
+        }
+    }
+});
+curentDayList === null || curentDayList === void 0 ? void 0 : curentDayList.addEventListener("click", () => {
+    const currentSrc = curentDayList === null || curentDayList === void 0 ? void 0 : curentDayList.getAttribute("src");
+    const h3Color = document.querySelector("#curentDayList h3");
+    const ul = document.getElementById("selectedDayList");
+    if (currentSrc == "./assets/svg/chevron-right-solid.svg") {
+        curentDayList.src = "./assets/svg/chevron-down-solid.svg";
+        curentDayList.className = "i-size white";
+        if (h3Color != null) {
+            h3Color.className = "";
+        }
+        if (ul != null) {
+            ul.className = "list-colum Yesterday-list";
+        }
+    }
+    else {
+        curentDayList.src = "./assets/svg/chevron-right-solid.svg";
+        curentDayList.className = "i-size grey";
+        if (h3Color != null) {
+            h3Color.className = "grey";
+        }
+        if (ul != null) {
+            ul.className = "list-colum Yesterday-list display-none";
+        }
+    }
+});
+dayAfterList === null || dayAfterList === void 0 ? void 0 : dayAfterList.addEventListener("click", () => {
+    const currentSrc = dayAfterList === null || dayAfterList === void 0 ? void 0 : dayAfterList.getAttribute("src");
+    const h3Color = document.querySelector("#dayAfterList h3");
+    const ul = document.getElementById("afterDayList");
+    if (currentSrc == "./assets/svg/chevron-right-solid.svg") {
+        dayAfterList.src = "./assets/svg/chevron-down-solid.svg";
+        dayAfterList.className = "i-size white";
+        if (h3Color != null) {
+            h3Color.className = "";
+        }
+        if (ul != null) {
+            ul.className = "list-colum Yesterday-list";
+        }
+    }
+    else {
+        dayAfterList.src = "./assets/svg/chevron-right-solid.svg";
+        dayAfterList.className = "i-size grey";
+        if (h3Color != null) {
+            h3Color.className = "grey";
+        }
+        if (ul != null) {
+            ul.className = "list-colum Yesterday-list display-none";
+        }
+    }
+});
 export { formResult, clearForm, setFormResult };
-// export { clearForm };
-// export { setFormResult };
