@@ -1,10 +1,9 @@
-import { formResult } from "./returnTaskTitleAndDate.js";
-import { clearForm } from "./returnTaskTitleAndDate.js";
-import { setFormResult } from "./returnTaskTitleAndDate.js";
-import { createList } from "./createList.js";
+import { formResult, clearForm, setFormResult  } from "./index.js";
+
 import { TaskData } from "./models/taskData.js";
 import { TasksList } from "./models/tasksList.js";
 import { List } from "./services/list.js";
+import { IdGenerator } from "./services/IdGenerator.js";
 
 const form = document.getElementById("new-task-form") as HTMLFormElement | null;
 
@@ -20,17 +19,20 @@ const listInfo: TasksList = {
   tasks: taskData,
 };
 
-// init of my list
+// init of my list and id
 const myList = new List(listInfo);
+const idGenerator = new IdGenerator();
+
 
 
 
 form?.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  setFormResult();
+  setFormResult(idGenerator.generateCurentId(listInfo.name));
   myList.addTask(formResult);
   console.log(listInfo);
   clearForm();
-  createList(myList.returnTasksList());
+  // createTask(myList.returnTasksList());
 });
+ 

@@ -1,17 +1,4 @@
-// import { List } from "./services/list.js";
-// import { TasksList } from "./models/tasksList.js";
-// const taskData: TaskData[] = [
-//   { id: "1", taskDate: new Date(), taskTitle: "Task 1" },
-//   { id: "2", taskDate: new Date(), taskTitle: "Task 2" },
-//   { id: "3", taskDate: new Date(), taskTitle: "Task 4" },
-// ];
-// const listInfo: TasksList = {
-//   id: "1",
-//   name: "My list",
-//   tasks: taskData,
-// };
-// const newList = new List(listInfo);
-function createList(list) {
+function createTask(list) {
     const todayList = document.getElementById("selectedDayList");
     console.log(list);
     if ((list === null || list === void 0 ? void 0 : list.tasks) && list.tasks.length > 0) {
@@ -55,4 +42,4 @@ function createList(list) {
         });
     }
 }
-export { createList };
+export { createTask };

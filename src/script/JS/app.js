@@ -1,8 +1,6 @@
-import { formResult } from "./returnTaskTitleAndDate.js";
-import { clearForm } from "./returnTaskTitleAndDate.js";
-import { setFormResult } from "./returnTaskTitleAndDate.js";
-import { createList } from "./createList.js";
+import { formResult, clearForm, setFormResult } from "./index.js";
 import { List } from "./services/list.js";
+import { IdGenerator } from "./services/IdGenerator.js";
 const form = document.getElementById("new-task-form");
 //@TODO INIT FOR MY CLASS LIST DELET WHITH LOCAL STORAGE
 const taskData = [];
@@ -11,13 +9,14 @@ const listInfo = {
     name: "My list",
     tasks: taskData,
 };
-// init of my list
+// init of my list and id
 const myList = new List(listInfo);
+const idGenerator = new IdGenerator();
 form === null || form === void 0 ? void 0 : form.addEventListener("submit", (e) => {
     e.preventDefault();
-    setFormResult();
+    setFormResult(idGenerator.generateCurentId(listInfo.name));
     myList.addTask(formResult);
     console.log(listInfo);
     clearForm();
-    createList(myList.returnTasksList());
+    // createTask(myList.returnTasksList());
 });

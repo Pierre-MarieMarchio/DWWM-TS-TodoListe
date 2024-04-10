@@ -1,22 +1,7 @@
-// import { TaskData } from "./models/taskData.js";
 import { TasksList } from "./models/tasksList.js";
-// import { List } from "./services/list.js";
-// import { TasksList } from "./models/tasksList.js";
 
-// const taskData: TaskData[] = [
-//   { id: "1", taskDate: new Date(), taskTitle: "Task 1" },
-//   { id: "2", taskDate: new Date(), taskTitle: "Task 2" },
-//   { id: "3", taskDate: new Date(), taskTitle: "Task 4" },
-// ];
 
-// const listInfo: TasksList = {
-//   id: "1",
-//   name: "My list",
-//   tasks: taskData,
-// };
-// const newList = new List(listInfo);
-
-function createList(list: TasksList): void {
+function createTask(list: TasksList): void {
   const todayList = document.getElementById(
     "selectedDayList"
   ) as HTMLUListElement | null;
@@ -68,4 +53,4 @@ function createList(list: TasksList): void {
   }
 }
 
-export { createList };
+export { createTask };

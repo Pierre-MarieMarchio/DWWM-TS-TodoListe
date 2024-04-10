@@ -1,4 +1,4 @@
-import { TaskData } from "./models/taskData";
+import { TaskData } from "./models/taskData.js";
 
 
 let taskInput = document.getElementById(
@@ -37,30 +37,28 @@ const dateForm = () => {
 
 dateForm();
 
-// recuperer les valeurs
+// recuperer les valeurs de l'input
+
 
 let taskTitle = "";
 let taskDate: Date = new Date();
-let formResult: TaskData ;
+let formResult: TaskData;
 
 btnDate?.addEventListener("click", () => {
   inputDate?.showPicker();
 });
 
-const setFormResult = () => {
-
-  
-
+const setFormResult = ( idGenerator: string) => {
   if (taskInput?.value) {
     taskTitle = taskInput.value;
   }
 
   if (inputDate?.value) {
-    taskDate = new Date(inputDate?.value); 
+    taskDate = new Date(inputDate?.value);
   }
 
   formResult = {
-    id:  "@TODO MAKE FUNC TO MAKE ID",
+    id: idGenerator,
     taskDate: taskDate,
     taskTitle: taskTitle,
   };
@@ -76,6 +74,6 @@ const clearForm = () => {
   // }
 };
 
-export { formResult };
-export { clearForm };
-export { setFormResult };
+export { formResult, clearForm, setFormResult };
+// export { clearForm };
+// export { setFormResult };

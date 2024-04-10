@@ -1,4 +1,4 @@
-import { TaskData } from "./taskData";
+import { TaskData } from "./taskData.js";
 
 export interface TasksList {
   id: string;

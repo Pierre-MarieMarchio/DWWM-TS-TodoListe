@@ -26,7 +26,7 @@ let formResult;
 btnDate === null || btnDate === void 0 ? void 0 : btnDate.addEventListener("click", () => {
     inputDate === null || inputDate === void 0 ? void 0 : inputDate.showPicker();
 });
-const setFormResult = () => {
+const setFormResult = (idGenerator) => {
     if (taskInput === null || taskInput === void 0 ? void 0 : taskInput.value) {
         taskTitle = taskInput.value;
     }
@@ -34,7 +34,7 @@ const setFormResult = () => {
         taskDate = new Date(inputDate === null || inputDate === void 0 ? void 0 : inputDate.value);
     }
     formResult = {
-        id: "@TODO MAKE FUNC TO MAKE ID",
+        id: idGenerator,
         taskDate: taskDate,
         taskTitle: taskTitle,
     };
