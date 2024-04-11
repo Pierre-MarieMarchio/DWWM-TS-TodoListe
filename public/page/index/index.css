@@ -1,0 +1,380 @@
+/* section selector colum*/
+.section-todo-list {
+    display: flex;
+    flex-direction: column;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    color: #eee;
+  }
+  
+  .section-todo-list .list {
+    padding: 1rem;
+  }
+  
+  .section-todo-list .list-title {
+    margin-bottom: 2rem;
+    position: sticky;
+    top: 5.3rem;
+    z-index: 1;
+    background-color: black;
+  }
+  
+  aside.sidebar {
+    border-right: 1px solid rgb(197, 178, 178);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    text-align: left;
+    height: 100vh;
+    position: sticky;
+    top: 0px;
+    overflow-y: auto;
+  }
+  
+  aside.sidebar .logout {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  }
+  
+  aside.sidebar .logout p {
+    color: azure;
+  }
+  
+  aside.sidebar img {
+    height: 1.5rem;
+    cursor: pointer;
+    filter: invert(99%) sepia(54%) saturate(169%) hue-rotate(248deg)
+      brightness(115%) contrast(100%);
+  }
+  
+/* new todo list */
+
+.input-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .input-container .input {
+    flex-grow: 1;
+    margin-right: 10px;
+  }
+  
+  .input-container .buttons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .input-container .buttons input {
+    margin-right: 10px;
+  }
+  
+  .new-list-box {
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+    background-color: black;
+  }
+  
+  div.new-list-box {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0.5rem;
+    margin: 1rem;
+  }
+  div.new-list-box form {
+    width: 100%;
+  }
+  .input-container {
+    height: 50px;
+    position: relative;
+    width: 100%;
+    margin: 0.65rem 0rem;
+    background-color: #303245;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+  }
+  
+  .input {
+    background-color: #303245;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 18px;
+    height: 100%;
+    outline: 0;
+    padding: 4px 20px 0;
+    width: 100%;
+  }
+  
+  .cut {
+    border-radius: 0.8rem;
+    height: 1.2rem;
+    left: 1.2rem;
+    position: absolute;
+    top: -1.2rem;
+    transform: translateY(0);
+    transition: transform 200ms;
+    width: 5rem;
+  }
+  
+  .input:focus ~ .cut,
+  .input:not(:placeholder-shown) ~ .cut {
+    transform: translateY(0.3rem);
+    background-color: #15172b;
+  }
+  
+  .placeholder {
+    color: #65657b;
+    font-family: sans-serif;
+    left: 1.2rem;
+    line-height: 0.7rem;
+    pointer-events: none;
+    position: absolute;
+    transform-origin: 0 50%;
+    transition: transform 200ms, color 200ms;
+    top: 1.2rem;
+  }
+  
+  .input:focus ~ .placeholder,
+  .input:not(:placeholder-shown) ~ .placeholder {
+    transform: translateY(-1.8rem) translateX(0.7rem) scale(0.75);
+  }
+  
+  .input:not(:placeholder-shown) ~ .placeholder {
+    color: #808097;
+  }
+  
+  .input:focus ~ .placeholder {
+    color: #dc2f55;
+  }
+  /* list */
+
+.title-date-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .change-date-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .check-box {
+    margin: 1rem;
+    transform: scale(2);
+    cursor: pointer;
+  }
+  
+  .list-day {
+    margin-bottom: 3rem;
+  }
+  
+  .list-day-Title {
+    display: flex;
+    align-items: center;
+    align-content: center;
+  }
+  
+  .list-colum {
+    display: flex;
+    flex-direction: column;
+  }
+  div.list-day-Title {
+    height: 0.5rem;
+  }
+  div.list-day h3 {
+    margin: 0;
+  }
+
+  
+
+/* post it card */
+
+.postit-box {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    background-color: #303245;
+  
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+  }
+  
+  .postit-box.ismodified {
+    background-color: blue;
+  }
+  
+  .postit-box.is-modified {
+    background-color: blueviolet;
+  }
+  
+  .list-text {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    text-align: left;
+  }
+  .postit-text {
+    padding: 0 0.6rem;
+  }
+  
+  .vertical-separator {
+    margin-right: 1rem;
+    border: 1px solid #65657b;
+    height: 2rem;
+  }
+
+  
+
+/* logique post-it  */
+
+/* Ajout d'un sélecteur pour les boutons */
+.delete-button:hover,
+.move-button:hover {
+  opacity: 0.8;
+}
+
+/* Ajout d'un sélecteur pour les tâches terminées */
+.check-box:checked + label {
+  text-decoration: line-through;
+  color: gray;
+}
+
+/* Désactivation de la case à cocher lorsque la classe ismodified est présente */
+.ismodified .check-box {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Empêcher le clic sur le texte de cocher la case à cocher */
+/* .postit-text {
+  pointer-events: none;
+} */
+
+/* icones svg */
+
+.i-size {
+  height: 1.5rem;
+  margin: 0.5rem;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+.i-size-d {
+  height: 1rem;
+  margin: 0.5rem 1rem;
+
+  cursor: pointer;
+}
+.list ul.list-colum li img {
+  height: 1.5rem;
+  margin: 0.5rem;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 0.9rem;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  aside.sidebar {
+    display: none;
+    height: auto;
+  }
+  .cut {
+    width: 4.5rem;
+  }
+
+  .list-day-Title h3 {
+    margin-top: 0.5rem;
+  }
+
+  .section-todo-list .list-title {
+    padding-top: 0.5rem;
+    top: 0;
+  }
+
+  div.new-list-box {
+    position: fixed;
+    width: 100%;
+    top: auto;
+    bottom: 0;
+    z-index: 1;
+    background-color: black;
+    margin: 0;
+    padding-top: 0;
+    border-top: solid 2px #808097;
+  }
+
+  div.list-day {
+    margin-bottom: 1.5rem;
+  }
+
+  .check-box {
+    margin: 0.5rem;
+    transform: scale(1);
+  }
+
+  .i-size {
+    height: 1rem;
+  }
+
+  .list-colum.Today-list {
+    padding: 0;
+  }
+
+  .list ul.list-colum li img {
+    height: 1rem;
+    margin: 0.2rem;
+    margin-right: 0.3rem;
+    cursor: pointer;
+  }
+
+  .vertical-separator {
+    margin-right: 0.4rem;
+  }
+
+  #greenbtn {
+    margin: 0;
+    margin-right: 0.4rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    font-size: 1.2rem;
+  }
+
+  .container {
+    grid-template-columns: 20rem auto;
+  }
+
+  .cut {
+    width: 6rem;
+  }
+
+  .sidebar {
+    padding: 3rem;
+  }
+  .section-todo-list {
+    padding: 3rem;
+  }
+}

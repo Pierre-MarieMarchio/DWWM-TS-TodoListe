@@ -1,0 +1,70 @@
+/* primary  selector */
+
+ul {
+  list-style: none;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  background-color: black;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+}
+
+h1 {
+  margin: 0;
+}
+
+.display-none {
+  display: none !important;
+}
+
+/* Ajout d'un sélecteur pour le container */
+.container {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 15rem auto;
+}
+
+
+
+
+/*  colors  */
+
+.red {
+  filter: brightness(0) saturate(100%) invert(22%) sepia(89%) saturate(1183%)
+    hue-rotate(13deg) brightness(99%) contrast(103%);
+}
+
+.list ul.list-colum .postit-box.ismodified img.red {
+  display: none;
+}
+
+.blue {
+  filter: brightness(0) saturate(100%) invert(51%) sepia(99%) saturate(1182%)
+    hue-rotate(186deg) brightness(100%) contrast(97%);
+}
+
+.green {
+  filter: brightness(0) saturate(100%) invert(20%) sepia(79%) saturate(2705%)
+    hue-rotate(144deg) brightness(103%) contrast(101%);
+}
+
+.white {
+  filter: invert(99%) sepia(54%) saturate(169%) hue-rotate(248deg)
+    brightness(115%) contrast(100%);
+}
+
+.grey {
+  color: #969696;
+  filter: invert(67%) sepia(13%) saturate(11%) hue-rotate(356deg)
+    brightness(87%) contrast(92%);
+}
+
+#greenbtn {
+  margin: 0;
+  margin-right: 1rem;
+}
