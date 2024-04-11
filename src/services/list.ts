@@ -52,13 +52,13 @@ export class List {
     label.textContent = formResult.taskTitle;
     const imgCheckBox = document.createElement("img");
     imgCheckBox.className = "red delete-button";
-    imgCheckBox.src = "./assets/svg/trash-can-solid.svg";
+    imgCheckBox.src = "../../assets/svg/trash-can-solid.svg";
     imgCheckBox.alt = "bouton delet";
     const divSeparator = document.createElement("div");
     divSeparator.className = "vertical-separator";
     const imgMoveBtn = document.createElement("img");
     imgMoveBtn.className = "green move-button";
-    imgMoveBtn.src = "./assets/svg/up-down-left-right-solid.svg";
+    imgMoveBtn.src = "../../assets/svg/up-down-left-right-solid.svg";
     imgMoveBtn.alt = "bouton move";
 
     if (todayList != null) {

@@ -90,8 +90,8 @@ dayBeforList?.addEventListener("click", () => {
     "beforSelectedDayList"
   ) as HTMLUListElement | null;
 
-  if (currentSrc == "./assets/svg/chevron-right-solid.svg") {
-    dayBeforList.src = "./assets/svg/chevron-down-solid.svg";
+  if (currentSrc == "../../assets/svg/chevron-right-solid.svg") {
+    dayBeforList.src = "../../assets/svg/chevron-down-solid.svg";
     dayBeforList.className = "i-size white";
     if (h3Color != null) {
       h3Color.className = "";
@@ -100,7 +100,7 @@ dayBeforList?.addEventListener("click", () => {
       ul.className = "list-colum Yesterday-list";
     }
   } else {
-    dayBeforList.src = "./assets/svg/chevron-right-solid.svg";
+    dayBeforList.src = "../../assets/svg/chevron-right-solid.svg";
     dayBeforList.className = "i-size grey";
     if (h3Color != null) {
       h3Color.className = "grey";
@@ -119,8 +119,8 @@ curentDayList?.addEventListener("click", () => {
     "selectedDayList"
   ) as HTMLUListElement | null;
 
-  if (currentSrc == "./assets/svg/chevron-right-solid.svg") {
-    curentDayList.src = "./assets/svg/chevron-down-solid.svg";
+  if (currentSrc == "../../assets/svg/chevron-right-solid.svg") {
+    curentDayList.src = "../../assets/svg/chevron-down-solid.svg";
     curentDayList.className = "i-size white";
     if (h3Color != null) {
       h3Color.className = "";
@@ -129,7 +129,7 @@ curentDayList?.addEventListener("click", () => {
       ul.className = "list-colum Yesterday-list";
     }
   } else {
-    curentDayList.src = "./assets/svg/chevron-right-solid.svg";
+    curentDayList.src = "../../assets/svg/chevron-right-solid.svg";
     curentDayList.className = "i-size grey";
     if (h3Color != null) {
       h3Color.className = "grey";
@@ -148,8 +148,8 @@ dayAfterList?.addEventListener("click", () => {
       "afterDayList"
     ) as HTMLUListElement | null;
 
-  if (currentSrc == "./assets/svg/chevron-right-solid.svg") {
-    dayAfterList.src = "./assets/svg/chevron-down-solid.svg";
+  if (currentSrc == "../../assets/svg/chevron-right-solid.svg") {
+    dayAfterList.src = "../../assets/svg/chevron-down-solid.svg";
     dayAfterList.className = "i-size white";
     if (h3Color != null) {
       h3Color.className = "";
@@ -158,7 +158,7 @@ dayAfterList?.addEventListener("click", () => {
       ul.className = "list-colum Yesterday-list";
     }
   } else {
-    dayAfterList.src = "./assets/svg/chevron-right-solid.svg";
+    dayAfterList.src = "../../assets/svg/chevron-right-solid.svg";
     dayAfterList.className = "i-size grey";
     if (h3Color != null) {
       h3Color.className = "grey";
