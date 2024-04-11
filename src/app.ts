@@ -1,11 +1,26 @@
-import { formResult, clearForm, setFormResult } from "./libs/formHandler.js";
+// Models
 
 import { TaskData } from "./models/taskData.js";
 import { TasksList } from "./models/tasksList.js";
+
+// libs
+
+import { formResult, clearForm, setFormResult } from "./libs/formHandler.js";
+import { dateForm } from "./libs/formDateLimit.js";
+import { btnListLogique } from "./libs/btnListLogique.js";
+// services
+
 import { List } from "./services/list.js";
 import { IdGenerator } from "./services/IdGenerator.js";
 
+
+
 const form = document.getElementById("new-task-form") as HTMLFormElement | null;
+
+document.addEventListener("DOMContentLoaded", () => {
+  dateForm();
+  btnListLogique();
+});
 
 //@TODO INIT FOR MY CLASS LIST DELET WHITH LOCAL STORAGE
 

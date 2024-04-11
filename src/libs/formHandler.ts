@@ -6,12 +6,18 @@ const btnDate = document.getElementById(
 const taskInput = document.getElementById(
   "task-input"
 ) as HTMLInputElement | null;
-const  inputDate = document.getElementById("task-date") as HTMLInputElement | null;
-
+const inputDate = document.getElementById(
+  "task-date"
+) as HTMLInputElement | null;
 
 let taskTitle = "";
 let taskDate: Date = new Date();
-let formResult: TaskData;
+let formResult: TaskData = {
+  id: "",
+  taskDate: new Date(),
+  taskTitle: "",
+};
+
 btnDate?.addEventListener("click", () => {
   inputDate?.showPicker();
 });
@@ -36,11 +42,12 @@ const clearForm = () => {
   if (taskInput?.value) {
     taskInput.value = "";
   }
+
+  taskTitle = ""; 
   //@TODO  DELETE THAT DATE YO
   // if (inputDate) {
   //   inputDate = null;
   // }
 };
-
 
 export { formResult, clearForm, setFormResult };
