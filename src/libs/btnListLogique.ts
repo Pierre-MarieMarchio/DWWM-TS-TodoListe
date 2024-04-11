@@ -5,8 +5,8 @@ const curentDayList: HTMLImageElement | null =
 const dayAfterList: HTMLImageElement | null =
   document.querySelector("#dayAfterList img");
 
-const btnListLogique = () => {
-  dayBeforList?.addEventListener("click", () => {
+const btnListLogique = (): void => {
+  dayBeforList?.addEventListener("click", (): void => {
     const currentSrc = dayBeforList?.getAttribute("src");
     const h3Color: HTMLElement | null =
       document.querySelector("#dayBeforList h3");
@@ -94,5 +94,5 @@ const btnListLogique = () => {
   });
 };
 
-
 export { btnListLogique };
+
