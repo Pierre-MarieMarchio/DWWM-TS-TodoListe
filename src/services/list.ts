@@ -1,7 +1,6 @@
 import { TaskData } from "../models/taskData.js";
 import { TasksList } from "../models/tasksList.js";
 
-
 export class List {
   tasksList: TasksList;
 
@@ -10,32 +9,79 @@ export class List {
   }
   //@TODO - WHEN LOCAL STORAGE DELETE AND USE SERVICE
 
-  addTask(formResult: TaskData ): void {
+  addTask(formResult: TaskData): void {
     const task: TaskData = {
       id: formResult.id,
       taskDate: formResult.taskDate,
       taskTitle: formResult.taskTitle,
+      taskStatus: formResult.taskStatus,
     };
 
     this.tasksList.tasks?.push(task);
-    this.generateHTMLTask(formResult)
-
+    this.renderAddTask(formResult);
   }
 
-  removeTask(): void {
+  removeTask(taskId: String): void {
+    console.log(taskId);
 
+    let taskIndex = this.tasksList.tasks.findIndex((task) => "li-"+task.id === taskId);
+
+    if (taskIndex !== -1) {
+     
+      this.tasksList.tasks.splice(taskIndex, 1);
+    } else {
+      console.error("taskIndex not found");
+      
+    }
+    this.renderRemoveTask(taskId);
+
+    
     
   }
 
-  editTask(): void {}
+  editTask(): void {
+
+
+  }
 
   // ENDS HERE
 
-  generateHTMLTask(formResult: TaskData): void {
+  addEventListener(): void {
+    const lists: HTMLElement | null = document.querySelector("div.list");
 
-    const todayList = document.getElementById(
-      "selectedDayList"
-    ) as HTMLUListElement | null;
+    lists?.addEventListener("click", (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+
+      if (e.target instanceof HTMLElement && target.classList.contains("delete-button")) {
+        console.log("cliked");
+
+        const parentElement = target.parentNode;
+        const grandParentElement = parentElement?.parentNode as HTMLElement | null;
+
+        if (grandParentElement) {
+          const parentElementID = grandParentElement.getAttribute("id");
+
+          if (parentElementID != null) {
+            this.removeTask(parentElementID);
+          }
+        }
+      }
+    });
+  }
+
+  renderRemoveTask( taskId : String): void {
+    const task = document.getElementById(`${taskId}`) as HTMLElement | null;
+
+    console.log(task);
+    console.log(taskId);
+    if (task) {
+      task.remove();
+    }
+
+  };
+
+  renderAddTask(formResult: TaskData): void {
+    const todayList = document.getElementById("selectedDayList") as HTMLUListElement | null;
 
     const listItem = document.createElement("li");
     listItem.id = "li-" + formResult.id;
@@ -52,10 +98,11 @@ export class List {
     label.htmlFor = formResult.id;
     label.className = "postit-text";
     label.textContent = formResult.taskTitle;
-    const imgCheckBox = document.createElement("img");
-    imgCheckBox.className = "red delete-button";
-    imgCheckBox.src = "../../assets/svg/trash-can-solid.svg";
-    imgCheckBox.alt = "bouton delet";
+    const imgDeleteBtn = document.createElement("img");
+    imgDeleteBtn.className = "red delete-button";
+    imgDeleteBtn.src = "../../assets/svg/trash-can-solid.svg";
+    imgDeleteBtn.alt = "bouton delete";
+    imgDeleteBtn.dataset["deleteBtn"] = "";
     const divSeparator = document.createElement("div");
     divSeparator.className = "vertical-separator";
     const imgMoveBtn = document.createElement("img");
@@ -72,15 +119,16 @@ export class List {
     divBox.appendChild(divText);
     divText.appendChild(input);
     divText.appendChild(label);
-    divBox.appendChild(imgCheckBox);
+    divBox.appendChild(imgDeleteBtn);
     divBox.appendChild(divSeparator);
     divBox.appendChild(imgMoveBtn);
-    
   }
 
   updateList(): void {
 
-  };
+
+
+  }
 
   returnTasksList(): TasksList {
     return this.tasksList;

@@ -16,6 +16,7 @@ let formResult: TaskData = {
   id: "",
   taskDate: new Date(),
   taskTitle: "",
+  taskStatus: false,
 };
 
 btnDate?.addEventListener("click", () => {
@@ -35,6 +36,7 @@ const setFormResult = (idGenerator: string) => {
     id: idGenerator,
     taskDate: taskDate,
     taskTitle: taskTitle,
+    taskStatus: false,
   };
 };
 
