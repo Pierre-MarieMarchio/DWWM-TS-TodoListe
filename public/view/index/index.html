@@ -6,15 +6,12 @@
     <title>Todo List</title>
 
     <!-- fontawsome -->
-    <script
-      src="https://kit.fontawesome.com/ac08075a88.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/ac08075a88.js" crossorigin="anonymous"></script>
 
     <!-- css -->
     <link rel="stylesheet" href="../styles/normalize.css" />
     <link rel="stylesheet" href="../styles/main.css" />
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./index.css" />
   </head>
   <body>
     <main class="container">
@@ -34,12 +31,7 @@
         <div class="new-list-box">
           <form id="new-task-form">
             <div class="input-container ic2">
-              <input
-                id="task-input"
-                class="input"
-                type="text"
-                placeholder=" "
-              />
+              <input id="task-input" class="input" type="text" placeholder=" " />
               <div class="buttons">
                 <input type="date" id="task-date" style="display: none" />
                 <img
@@ -58,9 +50,7 @@
                 />
               </div>
               <div class="cut"></div>
-              <label for="note" class="placeholder" contenteditable="true"
-                >Add a Note</label
-              >
+              <label for="note" class="placeholder" contenteditable="true">Add a Note</label>
             </div>
           </form>
         </div>
@@ -70,17 +60,9 @@
             <div class="title-date-container">
               <h2>My list</h2>
               <div class="change-date-container">
-                <img
-                  class="white i-size-d"
-                  src="../../assets/svg/chevron-left-solid.svg"
-                  alt=""
-                />
+                <img class="white i-size-d" src="../../assets/svg/chevron-left-solid.svg" alt="" />
                 <h3>Today</h3>
-                <img
-                  class="white i-size-d"
-                  src="../../assets/svg/chevron-right-solid.svg"
-                  alt=""
-                />
+                <img class="white i-size-d" src="../../assets/svg/chevron-right-solid.svg" alt="" />
               </div>
             </div>
             <hr />
@@ -89,67 +71,23 @@
           <div class="list-days">
             <div id="dayBeforList" class="list-day">
               <div class="list-day-Title">
-                <img
-                  class="i-size grey"
-                  src="../../assets/svg/chevron-right-solid.svg"
-                  alt=""
-                />
+                <img class="i-size grey" src="../../assets/svg/chevron-right-solid.svg" alt="" />
                 <h3 class="grey">Yesterday</h3>
               </div>
-              <ul
-                id="beforSelectedDayList"
-                class="list-colum Yesterday-list"
-              ></ul>
+              <ul id="beforSelectedDayList" class="list-colum Yesterday-list"></ul>
             </div>
 
             <div id="curentDayList" class="list-day">
               <div class="list-day-Title">
-                <img
-                  class="i-size white"
-                  src="../../assets/svg/chevron-down-solid.svg"
-                  alt=""
-                />
+                <img class="i-size white" src="../../assets/svg/chevron-down-solid.svg" alt="" />
                 <h3>Today</h3>
               </div>
-              <ul
-                id="selectedDayList"
-                class="list-colum Today-list"
-              >
-                <li>
-                  <div class="postit-box ismodified">
-                    <div class="list-text">
-                      <input class="check-box" type="checkbox" id="task-3" />
-                      <label
-                        for="task-3"
-                        class="postit-text"
-                        contenteditable="true"
-                      >
-                        Faire en sorte que le site soit responsive
-                      </label>
-                    </div>
-                    <img
-                      class="red delete-button"
-                      src="../../assets/svg/trash-can-solid.svg"
-                      alt="bouton delet"
-                    />
-                    <div class="vertical-separator"></div>
-                    <img
-                      class="green move-button"
-                      src="../../assets/svg/up-down-left-right-solid.svg"
-                      alt="bouton move"
-                    />
-                  </div>
-                </li>
-              </ul>
+              <ul id="selectedDayList" class="list-colum Today-list"></ul>
             </div>
 
             <div id="dayAfterList" class="list-day">
               <div class="list-day-Title">
-                <img
-                  class="i-size grey"
-                  src="../../assets/svg/chevron-right-solid.svg"
-                  alt=""
-                />
+                <img class="i-size grey" src="../../assets/svg/chevron-right-solid.svg" alt="" />
                 <h3 class="grey">Tomorow</h3>
               </div>
               <ul id="afterDayList" class="list-colum Tomorow-list"></ul>
@@ -157,7 +95,7 @@
           </div>
         </div>
       </section>
-    </main> 
+    </main>
     <script type="module" src="../../dist/app.js"></script>
   </body>
 </html>
