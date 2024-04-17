@@ -15,6 +15,7 @@ import { renderAddTask } from "./libs/renderHTML.js";
 
 import { List } from "./services/List.js";
 import { IdGenerator } from "./services/IdGenerator.js";
+import { btnTaskLogique } from "./libs/btnTaskLogique.js";
 
 
 
@@ -23,7 +24,7 @@ import { IdGenerator } from "./services/IdGenerator.js";
 const form = document.getElementById("new-task-form") as HTMLFormElement | null;
 
 
-//@TODO INIT FOR MY CLASS LIST DELET WHITH LOCAL STORAGE
+//@TODO INIT FOR MY CLASS LIST, DELET WHITH LOCAL STORAGE
 
 const taskData: TaskData[] = [];
 const listInfo: TasksList = {
@@ -39,7 +40,8 @@ const idGenerator = new IdGenerator();
 document.addEventListener("DOMContentLoaded", () => {
   dateForm();
   btnListLogique();
-  myList.addEventListener();
+  // myList.addEventListener();
+  btnTaskLogique(myList);
 });
 
 

@@ -21,9 +21,6 @@ export class List {
   }
 
   serviceRemoveTask(taskId: String): void {
-    // @TODO REMOVE LOG
-    console.log(taskId);
-
     let taskIndex = this.tasksList.tasks.findIndex((task) => "li-" + task.id === taskId);
 
     if (taskIndex !== -1) {
