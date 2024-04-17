@@ -25,6 +25,42 @@ const handleDeleteBtn = (target: HTMLElement, list: List): void => {
   }
 };
 
+const handleEditClick = (taskBox: HTMLElement, taskText: HTMLElement) => {
+  console.log("coucou click");
+
+  if (taskBox.classList.contains("ismodified")) {
+    taskBox.classList.remove("ismodified");
+    taskText?.setAttribute("contenteditable", "false");
+    taskText?.blur();
+  } else {
+    taskBox.classList.add("ismodified");
+    taskText?.setAttribute("contenteditable", "true");
+    taskText?.focus();
+  }
+};
+
+const handleEditEnterKey = (taskBox: HTMLElement, taskText: HTMLElement) => {
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === "Enter") {
+      taskBox?.classList.remove("ismodified");
+      taskText?.blur();
+      taskText?.removeEventListener("keydown", handleKeyDown);
+    }
+  };
+  taskText.addEventListener("keydown", handleKeyDown);
+};
+
+const handleEditBlur = (taskBox: HTMLElement, taskText: HTMLElement): void => {
+  const handleBlur = () => {
+    console.log("coucou blur");
+
+    taskBox?.classList.remove("ismodified");
+    console.log(taskBox.classList);
+    taskText?.removeEventListener("blur", handleBlur);
+  };
+  taskText.addEventListener("blur", handleBlur);
+};
+
 const handleEditMethods = (target: HTMLElement): void => {
   const taskID = getTaskId(target);
   const taskBox = target.parentNode;
@@ -34,37 +70,12 @@ const handleEditMethods = (target: HTMLElement): void => {
   console.log(taskBox);
 
   if (taskID && taskBox instanceof HTMLElement) {
-    const handleBlur = () => {
-      console.log("coucou");
-
-      taskBox?.classList.remove("ismodified");
-      taskText?.removeEventListener("blur", handleBlur);
-    };
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Enter") {
-        taskBox?.classList.remove("ismodified");
-        taskText?.blur();
-        taskText?.removeEventListener("keydown", handleKeyDown);
-      }
-    };
-
-    if (taskBox.classList.contains("ismodified")) {
-
-      taskText?.addEventListener("blur", handleBlur);
-      taskBox.classList.remove("ismodified");
-      taskText?.setAttribute("contenteditable", "false");
-      taskText?.blur();
-       
-    } else {
-      taskBox.classList.add("ismodified");
-      taskText?.setAttribute("contenteditable", "true");
-      taskText?.focus();
-      
+    if (taskText) {
+      handleEditClick(taskBox, taskText);
+      handleEditEnterKey(taskBox, taskText);
+      console.log("hi");
+      handleEditBlur(taskBox, taskText);
     }
-
-   
-    taskText?.addEventListener("keydown", handleKeyDown);
   }
 };
 
