@@ -5,9 +5,11 @@ import { TasksList } from "./models/tasksList.js";
 
 // Libs
 
+
 import { formResult, clearForm, setFormResult } from "./libs/formHandler.js";
 import { dateForm } from "./libs/formDateLimit.js";
 import { btnListLogique } from "./libs/btnListLogique.js";
+import { renderAddTask } from "./libs/renderHTML.js";
 
 // Services
 
@@ -15,12 +17,10 @@ import { List } from "./services/List.js";
 import { IdGenerator } from "./services/IdGenerator.js";
 
 
+
 // DOM Element
 
 const form = document.getElementById("new-task-form") as HTMLFormElement | null;
-
-
-
 
 
 //@TODO INIT FOR MY CLASS LIST DELET WHITH LOCAL STORAGE
@@ -47,7 +47,8 @@ form?.addEventListener("submit", (e) => {
   e.preventDefault();
 
   setFormResult(idGenerator.generateCurentId(listInfo.name));
-  myList.addTask(formResult);
+  myList.serviceAddTask(formResult);
+  renderAddTask(formResult);
   clearForm();
   
   

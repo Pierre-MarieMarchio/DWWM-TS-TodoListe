@@ -261,9 +261,9 @@
 }
 
 /* Empêcher le clic sur le texte de cocher la case à cocher */
-/* .postit-text {
+.postit-text {
   pointer-events: none;
-} */
+}
 
 /* icones svg */
 

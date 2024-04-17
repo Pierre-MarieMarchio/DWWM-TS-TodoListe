@@ -1,19 +1,9 @@
-const dayBeforList: HTMLImageElement | null =
-  document.querySelector("#dayBeforList img");
-const curentDayList: HTMLImageElement | null =
-  document.querySelector("#curentDayList img");
-const dayAfterList: HTMLImageElement | null =
-  document.querySelector("#dayAfterList img");
-
-const btnListLogique = (): void => {
-  dayBeforList?.addEventListener("click", (): void => {
+const handleDayBeforBtn = (): void => {
+  const dayBeforList: HTMLImageElement | null = document.querySelector("#dayBeforList img");
+  if (dayBeforList != null) {
+    const h3Color: HTMLElement | null = document.querySelector("#dayBeforList h3");
+    const ul = document.getElementById("beforSelectedDayList") as HTMLUListElement | null;
     const currentSrc = dayBeforList?.getAttribute("src");
-    const h3Color: HTMLElement | null =
-      document.querySelector("#dayBeforList h3");
-    const ul = document.getElementById(
-      "beforSelectedDayList"
-    ) as HTMLUListElement | null;
-
     if (currentSrc == "../../assets/svg/chevron-right-solid.svg") {
       dayBeforList.src = "../../assets/svg/chevron-down-solid.svg";
       dayBeforList.className = "i-size white";
@@ -33,16 +23,15 @@ const btnListLogique = (): void => {
         ul.className = "list-colum Yesterday-list display-none";
       }
     }
-  });
+  }
+};
 
-  curentDayList?.addEventListener("click", () => {
+const handleCurentDayBtn = () => {
+  const curentDayList: HTMLImageElement | null = document.querySelector("#curentDayList img");
+  if (curentDayList != null) {
+    const h3Color: HTMLElement | null = document.querySelector("#curentDayList h3");
+    const ul = document.getElementById("selectedDayList") as HTMLUListElement | null;
     const currentSrc = curentDayList?.getAttribute("src");
-    const h3Color: HTMLElement | null =
-      document.querySelector("#curentDayList h3");
-    const ul = document.getElementById(
-      "selectedDayList"
-    ) as HTMLUListElement | null;
-
     if (currentSrc == "../../assets/svg/chevron-right-solid.svg") {
       curentDayList.src = "../../assets/svg/chevron-down-solid.svg";
       curentDayList.className = "i-size white";
@@ -62,15 +51,16 @@ const btnListLogique = (): void => {
         ul.className = "list-colum Yesterday-list display-none";
       }
     }
-  });
+  }
+};
 
-  dayAfterList?.addEventListener("click", () => {
+const handleDayAfterBtn = (): void => {
+  const dayAfterList: HTMLImageElement | null = document.querySelector("#dayAfterList img");
+
+  if (dayAfterList != null) {
     const currentSrc = dayAfterList?.getAttribute("src");
-    const h3Color: HTMLElement | null =
-      document.querySelector("#dayAfterList h3");
-    const ul = document.getElementById(
-      "afterDayList"
-    ) as HTMLUListElement | null;
+    const h3Color: HTMLElement | null = document.querySelector("#dayAfterList h3");
+    const ul = document.getElementById("afterDayList") as HTMLUListElement | null;
 
     if (currentSrc == "../../assets/svg/chevron-right-solid.svg") {
       dayAfterList.src = "../../assets/svg/chevron-down-solid.svg";
@@ -91,8 +81,25 @@ const btnListLogique = (): void => {
         ul.className = "list-colum Yesterday-list display-none";
       }
     }
+  }
+};
+
+const btnListLogique = (): void => {
+  const lists: HTMLElement | null = document.querySelector("div.list");
+
+  lists?.addEventListener("click", (e: MouseEvent) => {
+    if (e.target instanceof HTMLElement) {
+      const target = e.target;
+
+      if (target.id === "dayBeforListBtn") {
+        handleDayBeforBtn();
+      } else if (target.id === "curentDayListBtn") {
+        handleCurentDayBtn();
+      } else if (target.id === "dayAfterListBtn") {
+        handleDayAfterBtn();
+      }
+    }
   });
 };
 
 export { btnListLogique };
-
