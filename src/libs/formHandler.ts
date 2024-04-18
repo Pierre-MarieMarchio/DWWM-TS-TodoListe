@@ -10,7 +10,7 @@ const inputDate = document.getElementById(
   "task-date"
 ) as HTMLInputElement | null;
 
-let taskTitle = "";
+let taskTitle = "Une Note";
 let taskDate: Date = new Date();
 let formResult: TaskData = {
   id: "",
@@ -45,7 +45,7 @@ const clearForm = () => {
     taskInput.value = "";
   }
 
-  taskTitle = ""; 
+  taskTitle = "Une Note"; 
   //@TODO  DELETE THAT DATE YO
   // if (inputDate) {
   //   inputDate = null;

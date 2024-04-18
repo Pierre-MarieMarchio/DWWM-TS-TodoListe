@@ -26,7 +26,7 @@ const handleDeleteBtn = (target: HTMLElement, list: List): void => {
 };
 
 const handleEditClick = (taskBox: HTMLElement, taskText: HTMLElement) => {
-  console.log("coucou click");
+  console.log("handleEditClick");
 
   if (taskBox.classList.contains("ismodified")) {
     taskBox.classList.remove("ismodified");
@@ -50,15 +50,20 @@ const handleEditEnterKey = (taskBox: HTMLElement, taskText: HTMLElement) => {
   taskText.addEventListener("keydown", handleKeyDown);
 };
 
-const handleEditBlur = (taskBox: HTMLElement, taskText: HTMLElement): void => {
-  const handleBlur = () => {
-    console.log("coucou blur");
+const handleEditBlur = (taskBox: HTMLElement): void => {
+  const handleBlur = (event: MouseEvent) => {
+    const clickedElement = event.target as HTMLElement;
 
-    taskBox?.classList.remove("ismodified");
-    console.log(taskBox.classList);
-    taskText?.removeEventListener("blur", handleBlur);
+    if (!taskBox.contains(clickedElement) && taskBox.classList.contains("ismodified")) {
+      taskBox.classList.remove("ismodified");
+      const taskText = taskBox.querySelector("label.postit-text");
+      if (taskText) {
+        taskText.setAttribute("contenteditable", "false");
+      }
+      document.removeEventListener("click", handleBlur);
+    }
   };
-  taskText.addEventListener("blur", handleBlur);
+  document.addEventListener("click", handleBlur);
 };
 
 const handleEditMethods = (target: HTMLElement): void => {
@@ -71,18 +76,19 @@ const handleEditMethods = (target: HTMLElement): void => {
 
   if (taskID && taskBox instanceof HTMLElement) {
     if (taskText) {
+      console.log("handleEditMethode");
+      
       handleEditClick(taskBox, taskText);
       handleEditEnterKey(taskBox, taskText);
-      console.log("hi");
-      handleEditBlur(taskBox, taskText);
+      handleEditBlur(taskBox);
     }
   }
 };
 
 const btnTaskLogique = (list: List) => {
-  // const lists: HTMLElement | null = document.querySelector("div.list");
+  const lists: HTMLElement | null = document.querySelector("div.list");
 
-  document.addEventListener("click", (e: MouseEvent) => {
+  lists?.addEventListener("click", (e: MouseEvent) => {
     if (e.target instanceof HTMLElement) {
       const target = e.target;
       if (target.classList.contains("delete-button")) {
