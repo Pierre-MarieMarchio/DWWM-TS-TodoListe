@@ -5,9 +5,6 @@ const getTaskId = (target: HTMLElement): string | null => {
   const parentElement = target.parentNode;
   const grandParentElement = parentElement?.parentNode as HTMLElement | null;
 
-  // console.log(grandParentElement);
-  // console.log(parentElement);
-
   if (grandParentElement) {
     const taskID = grandParentElement.getAttribute("id");
 
@@ -25,10 +22,17 @@ const handleDeleteBtn = (target: HTMLElement, list: List): void => {
   }
 };
 
-const handleEditClick = (taskBox: HTMLElement, taskText: HTMLElement) => {
-  console.log("handleEditClick");
+// Edit Event
 
+const getTaskTitleChanges = (taskText: HTMLElement): string => {
+  return taskText.innerText;
+};
+
+const handleEditClick = (taskBox: HTMLElement, taskText: HTMLElement, Id: string, list: List) => {
   if (taskBox.classList.contains("ismodified")) {
+    const text: string = getTaskTitleChanges(taskText);
+    list.serviceEditTaskText(Id, text);
+
     taskBox.classList.remove("ismodified");
     taskText?.setAttribute("contenteditable", "false");
     taskText?.blur();
@@ -39,9 +43,12 @@ const handleEditClick = (taskBox: HTMLElement, taskText: HTMLElement) => {
   }
 };
 
-const handleEditEnterKey = (taskBox: HTMLElement, taskText: HTMLElement) => {
+const handleEditEnterKey = (taskBox: HTMLElement, taskText: HTMLElement, Id: string, list: List) => {
   const handleKeyDown = (event: KeyboardEvent) => {
     if (event.key === "Enter") {
+      const text: string = getTaskTitleChanges(taskText);
+      list.serviceEditTaskText(Id, text);
+
       taskBox?.classList.remove("ismodified");
       taskText?.blur();
       taskText?.removeEventListener("keydown", handleKeyDown);
@@ -50,40 +57,37 @@ const handleEditEnterKey = (taskBox: HTMLElement, taskText: HTMLElement) => {
   taskText.addEventListener("keydown", handleKeyDown);
 };
 
-const handleEditBlur = (taskBox: HTMLElement): void => {
-  const handleBlur = (event: MouseEvent) => {
-    const clickedElement = event.target as HTMLElement;
+const handleEditBlur = (taskBox: HTMLElement, taskText: HTMLElement, Id: string, list: List): void => {
+  const handleBlur = (e: MouseEvent) => {
+    const clickedElement = e.target as HTMLElement;
 
     if (!taskBox.contains(clickedElement) && taskBox.classList.contains("ismodified")) {
+      const text: string = getTaskTitleChanges(taskText);
+      list.serviceEditTaskText(Id, text);
+
       taskBox.classList.remove("ismodified");
-      const taskText = taskBox.querySelector("label.postit-text");
-      if (taskText) {
-        taskText.setAttribute("contenteditable", "false");
-      }
+      taskText.setAttribute("contenteditable", "false");
       document.removeEventListener("click", handleBlur);
     }
   };
   document.addEventListener("click", handleBlur);
 };
 
-const handleEditMethods = (target: HTMLElement): void => {
+const handleEditMethods = (target: HTMLElement, list: List): void => {
   const taskID = getTaskId(target);
   const taskBox = target.parentNode;
   const taskText: HTMLElement | null | undefined = taskBox?.querySelector("label.postit-text");
 
-  console.log(target);
-  console.log(taskBox);
-
   if (taskID && taskBox instanceof HTMLElement) {
     if (taskText) {
-      console.log("handleEditMethode");
-      
-      handleEditClick(taskBox, taskText);
-      handleEditEnterKey(taskBox, taskText);
-      handleEditBlur(taskBox);
+      handleEditClick(taskBox, taskText, taskID, list);
+      handleEditEnterKey(taskBox, taskText, taskID, list);
+      handleEditBlur(taskBox, taskText, taskID, list);
     }
   }
 };
+
+// main function
 
 const btnTaskLogique = (list: List) => {
   const lists: HTMLElement | null = document.querySelector("div.list");
@@ -94,7 +98,7 @@ const btnTaskLogique = (list: List) => {
       if (target.classList.contains("delete-button")) {
         handleDeleteBtn(target, list);
       } else if (target.classList.contains("list-text")) {
-        handleEditMethods(target);
+        handleEditMethods(target, list);
       }
     }
   });

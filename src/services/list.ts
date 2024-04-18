@@ -31,11 +31,22 @@ export class List {
     }
   }
 
-  editTask(): void {}
+  serviceEditTaskText(taskId: string, newTaskText: string): void {
+    const taskIndex = this.tasksList.tasks.findIndex((task) => "li-" + task.id === taskId);
 
+    if (taskIndex !== -1) {
+      if (this.tasksList.tasks[taskIndex]) {
+        this.tasksList.tasks[taskIndex]!.taskTitle = newTaskText;
+      } else {
+        console.error("no task title or is undifined");
+      }
+    } else {
+      console.error("Id not found");
+    }
+  }
 
   // ENDS HERE
- 
+
   updateList(): void {}
 
   returnTasksList(): TasksList {
